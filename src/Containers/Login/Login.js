@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignIn from '../../Components/SignIn/SignIn';
+import SignUp from '../../Components/SignIn/SignUp';
 import './Login.css';
 
 const Login = () => {
@@ -22,7 +22,7 @@ const Login = () => {
             </div>
             <div className="loginScreen__body">
                 {signIn ? (
-                    <SignIn />
+                    <SignUp />
                 ) : (
                     <>
                         <h1>
