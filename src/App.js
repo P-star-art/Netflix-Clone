@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import HomeScreen from './Containers/HomeScreen/HomeScreen';
 import {
@@ -10,6 +10,7 @@ import Login from './Containers/Login/Login';
 import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
+import Profile from '../src/Components/Profile/Profile';
 
 function App() {
 
@@ -24,13 +25,13 @@ function App() {
           email: userAuth.email
         }))
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     })
 
     return unsubscribe;
-    
-  }, [])
+
+  }, [dispatch])
 
   return (
     <div className="app">
@@ -40,6 +41,9 @@ function App() {
             <Login />
           ) : (
             <Switch>
+              <Route path="/profile">
+                <Profile />
+              </Route>
               <Route exact path="/">
                 <HomeScreen />
               </Route>
